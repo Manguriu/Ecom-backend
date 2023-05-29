@@ -9,6 +9,8 @@ use App\Models\Visitor;
 class VisitorsController extends Controller
 {
     public function Details(){
+        // api to show the number of times the site has been visited
+
         $ip_address =$_SERVER['REMOTE_ADDR'];
         date_default_timezone_set("Africa/Nairobi");
         $visit_time =date("h:i:sa");
