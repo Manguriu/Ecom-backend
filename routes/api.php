@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\VisitorsController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\SiteinfoController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductListController;
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
@@ -26,3 +27,13 @@ Route::get('/siteinfo',[SiteinfoController::class, 'AllSite']);
 
 //category
 Route::get('/categories',[CategoryController::class, 'Allcategory']);
+
+
+//product by remarks
+Route::get('/Productsbyremark/{remark}',[ProductListController::class, 'AllProductsremark']);
+
+//by category
+Route::get('/Productsbycategory/{category}',[ProductListController::class, 'AllProductscategory']);
+
+//sub category
+Route::get('/Productsbysubcategory/{category}/{sub_category}',[ProductListController::class, 'AllProductssubcategory']);
