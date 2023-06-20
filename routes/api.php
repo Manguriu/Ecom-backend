@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\SiteinfoController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductListController;
+use App\Http\Controllers\Admin\SliderController;
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
@@ -37,3 +38,7 @@ Route::get('/Productsbycategory/{category}',[ProductListController::class, 'AllP
 
 //sub category
 Route::get('/Productsbysubcategory/{category}/{sub_category}',[ProductListController::class, 'AllProductssubcategory']);
+
+
+//slider
+Route::get('/slidermenu',[SliderController::class, 'Slider']);
