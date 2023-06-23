@@ -35,4 +35,11 @@ class ProductListController extends Controller
 
         return $productsubcategory;
     }
+//search api
+    public function SearchProduct(Request $request){
+        $key =$request ->key;
+        $productlist = ProductList::where('title','LIKE',"%{$key}%")->orWhere('sub_category','LIKE',"%{$key}%")->orWhere('category','LIKE',"%{$key}%")->get();
+        return $productlist;
+
+    }
 }
