@@ -10,10 +10,31 @@ use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductDeController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\User\AuthController;
+use App\Http\Controllers\User\ForgetController;
+use App\Http\Controllers\User\ResetController;
+use App\Http\Controllers\User\UserController;
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+
+
+//user login Api
+Route::post('/login', [AuthController::class, 'Login']);
+
+//register
+Route::post('/register',[AuthController::class,'Register']);
+
+//forget password
+
+Route::post('/forgetpassword',[ForgetController::class, 'ForgetPassword']);
+
+//reset password
+
+Route::post ('/resetpassword',[ResetController::class, 'ResetPassword']);
+
+// user profile
+Route::get('/user',[UserController::class , 'User'])->middleware('auth:api');
+
+
 
 
 // api to show the number of times the site has been visited
@@ -54,4 +75,6 @@ Route::get('/allNotification',[NotificationController::class, 'Notification']);
 
 //search
 Route::get('/search/{key}',[ProductListController::class, 'SearchProduct']);
+
+
 
